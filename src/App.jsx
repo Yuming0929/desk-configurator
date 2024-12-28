@@ -19,6 +19,7 @@ export default function App() {
           <Canvas style={{height: '100%', width: '100%'}} className="w-full h-full select-none" >
             <Experience />
           </Canvas>
+          <a className="relative bottom-10 right-10 font-semibold text-xl underline flex justify-center" href='https://yuminghuang.xyz/' target='__blank'>@Yuming Huang</a>
         </div>
         
         {/* 配置区域 */}

@@ -156,7 +156,7 @@ const Configurator = () => {
                     </div> */}
 
                     <button className="w-full bg-slate-800 text-white font-bold py-2 rounded">加入购物车</button>
-                    <div className="h-10"></div>
+                    <div className="h-20"></div>
                 </div>
             </div>
         </div>

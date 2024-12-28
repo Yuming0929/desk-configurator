@@ -19,7 +19,9 @@ const Experience = () => {
 
                     <Desk />
                 </Suspense>
+                
             </Stage>
+            
             <OrbitControls
                 speed={1.5}
                 global
