@@ -51,24 +51,6 @@ function Slider(props) {
                     <span>{props.max}cm</span>
                 </div>
             </div>
-
-            {/* 手动输入 */}
-            {/* <div className="flex items-center gap-2 mt-4">
-                <input
-                    type="number"
-                    min="60"
-                    max="200"
-                    value={width}
-                    onChange={(e) => {
-                        const value = Number(e.target.value);
-                        if (value >= 60 && value <= 200) {
-                            setWidth(value);
-                        }
-                    }}
-                    className="w-20 px-2 py-1 border rounded-md text-center"
-                />
-                <span className="text-gray-500">cm</span>
-            </div> */}
         </div>
     );
 }

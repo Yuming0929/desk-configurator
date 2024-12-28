@@ -11,12 +11,9 @@ const useTextureWithSettings = (textureConfig) => {
     })
     
     textureProps.map.repeat.set(4, 4)
-    
     textureProps.map.rotation = Math.PI / 2
     textureProps.map.wrapS = THREE.RepeatWrapping
     textureProps.map.wrapT = THREE.RepeatWrapping
-    textureProps.map.needsUpdate = true
-    
     return textureProps
 }
 
@@ -25,7 +22,7 @@ const Desk = (props) => {
     const { nodes, materials } = useGLTF('./models/desk.glb')
     const deskConfig = useConfigStore()
 
-    // console.log(nodes.Panel.position) 
+    // console.log(nodes) 
 
     const computedLength = useMemo(() => deskConfig.length / deskConfig.defaultLength, [ deskConfig.length])
 
