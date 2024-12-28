@@ -4,6 +4,7 @@ import { useState } from 'react'
 import "./App.css"
 import Experience from './components/Experience'
 import Configurator from './components/Configurator'
+
 export default function App() {
   return (  
       <div className='fixed inset-0 h-full flex flex-col md:flex-row'>

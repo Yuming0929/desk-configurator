@@ -15,7 +15,7 @@ const Experience = () => {
                     <boxGeometry args={[1, 1, 1]} />
                     <meshStandardMaterial color={"#e5e5e5"} />
                 </mesh> */}
-                <Suspense fallback={null}>
+                <Suspense fallback={null}>  
 
                     <Desk />
                 </Suspense>

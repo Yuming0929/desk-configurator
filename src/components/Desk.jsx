@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { Suspense, useMemo, useState } from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
 import textures from '../stores/detail';
 import * as THREE from 'three';
@@ -9,7 +9,7 @@ const useTextureWithSettings = (textureConfig) => {
     const textureProps = useTexture({
         map: textureConfig.texture.map,
     })
-    
+
     textureProps.map.repeat.set(4, 4)
     textureProps.map.rotation = Math.PI / 2
     textureProps.map.wrapS = THREE.RepeatWrapping
@@ -24,7 +24,7 @@ const Desk = (props) => {
 
     // console.log(nodes) 
 
-    const computedLength = useMemo(() => deskConfig.length / deskConfig.defaultLength, [ deskConfig.length])
+    const computedLength = useMemo(() => deskConfig.length / deskConfig.defaultLength, [deskConfig.length])
 
     const computedWidth = useMemo(() => deskConfig.width / deskConfig.defaultWidth, [deskConfig.width])
     const woodTextureProps = useTextureWithSettings(textures[deskConfig.topMaterial])
@@ -32,17 +32,18 @@ const Desk = (props) => {
     const computeRelativePosition = useMemo(() => (position) => {
         return new THREE.Vector3(
             position.x * computedLength,
-            position.y, 
+            position.y,
             position.z * computedWidth
         )
-     }, [computedWidth, computedLength])
+    }, [computedWidth, computedLength])
 
 
-   
+
 
 
     return (
         <group {...props} dispose={null}>
+
 
             {/* 桌面 */}
             <mesh geometry={nodes.Top.geometry} scale={[computedLength, 1, computedWidth]} position={nodes.Top.position} material={materials.Chair} >
@@ -74,11 +75,11 @@ const Desk = (props) => {
                 <meshStandardMaterial color={deskConfig.frameColor} metalness={0.7} roughness={0} />
             </mesh>
             {/* 电线 */}
-            <mesh geometry={nodes.Wires.geometry} scale={[1,1,computedWidth]} position={computeRelativePosition(nodes.Wires.position)} visible={deskConfig.electric}>
+            <mesh geometry={nodes.Wires.geometry} scale={[1, 1, computedWidth]} position={computeRelativePosition(nodes.Wires.position)} visible={deskConfig.electric}>
                 <meshStandardMaterial color={"#000000"} metalness={0} roughness={0} />
             </mesh>
             {/* 横梁 */}
-            <mesh geometry={nodes.CrossBeam.geometry} scale={[computedLength,1,1]} position={nodes.CrossBeam.position} visible={deskConfig.frameType !== "standard"}>
+            <mesh geometry={nodes.CrossBeam.geometry} scale={[computedLength, 1, 1]} position={nodes.CrossBeam.position} visible={deskConfig.frameType !== "standard"}>
                 <meshStandardMaterial color={deskConfig.frameColor} metalness={0.3} roughness={0} />
             </mesh>
         </group>
