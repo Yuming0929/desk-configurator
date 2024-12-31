@@ -2,6 +2,6 @@
 
 [Demo](https://desk-configurator-bice.vercel.app/) \
 Customizable texture, stand, color, size. \
-Configure you own Table :)
+Configure your own Table :)
 
 ![image](./src/assets/demo.png)
