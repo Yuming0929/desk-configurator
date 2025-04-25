@@ -1,9 +1,14 @@
-import React, { Suspense, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
 import textures from '../stores/detail';
 import * as THREE from 'three';
 import useConfigStore from '../stores/configStore';
 
+// 预加载所有纹理
+const textureKeys = Object.keys(textures);
+textureKeys.forEach(key => {
+    useTexture.preload(textures[key].texture.map);
+});
 
 const useTextureWithSettings = (textureConfig) => {
     const textureProps = useTexture({
@@ -22,7 +27,7 @@ const Desk = (props) => {
     const { nodes, materials } = useGLTF('./models/desk.glb')
     const deskConfig = useConfigStore()
 
-    // console.log(nodes) 
+
 
     const computedLength = useMemo(() => deskConfig.length / deskConfig.defaultLength, [deskConfig.length])
 
@@ -38,16 +43,13 @@ const Desk = (props) => {
     }, [computedWidth, computedLength])
 
 
-
-
-
     return (
         <group {...props} dispose={null}>
 
 
             {/* 桌面 */}
             <mesh geometry={nodes.Top.geometry} scale={[computedLength, 1, computedWidth]} position={nodes.Top.position} material={materials.Chair} >
-                <meshStandardMaterial {...woodTextureProps} />
+                <meshStandardMaterial {...woodTextureProps}/>
 
             </mesh>
 

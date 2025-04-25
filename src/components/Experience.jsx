@@ -1,7 +1,7 @@
 import { Center, Float, PresentationControls, Stage, MeshReflectorMaterial, OrbitControls } from "@react-three/drei"
 import { useLoader } from '@react-three/fiber'
+import { Html } from "@react-three/drei"
 import { Suspense } from "react";
-
 import Desk from "./Desk";
 
 const Experience = () => {
@@ -9,19 +9,19 @@ const Experience = () => {
     return (
         <>
             <color attach="background" args={['#e5e5e5']} />
-            <ambientLight intensity={3} />
-            <Stage environment={"city"} intensity={1} shadows={false}>
+            {/* <ambientLight intensity={1} /> */}
+            <Stage environment={"apartment"} intensity={1}  shadows={false}>
                 {/* <mesh>
                     <boxGeometry args={[1, 1, 1]} />
                     <meshStandardMaterial color={"#e5e5e5"} />
                 </mesh> */}
-                <Suspense fallback={null}>  
-
+                <Suspense fallback={null}>
                     <Desk />
+                    
                 </Suspense>
                 
             </Stage>
-            
+
             <OrbitControls
                 speed={1.5}
                 global

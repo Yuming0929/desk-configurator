@@ -9,13 +9,10 @@ const Configurator = () => {
     const deskConfig = useConfigStore()
 
     return (
-        // 外层容器设置固定高度
-        <div className="md:w-2/5 md:h-full w-full h-2/3 bg-white p-4">
-            {/* 标题 */}
-            <h2 className="text-xl font-bold my-5">配置区</h2>
+        <div className="flex flex-col h-full">
 
             {/* 滚动容器 - 设置固定高度并启用滚动 */}
-            <div className="mb-10 h-full overflow-y-auto ">
+            <div className="h-full overflow-y-auto ">
                 {/* 内容区域 */}
                 <div className="space-y-4  rounded p-4">
 
@@ -32,12 +29,12 @@ const Configurator = () => {
                                             border-2
                                             space-x-2 
                                             w-full 
-                                            hover:bg-slate-300
+                                            hover:bg-zinc-300
                                             transition-all
                                             p-2 mt-4 
                                             rounded-full
                                             cursor-pointer
-                                            ${deskConfig.topMaterial === item.id ? 'bg-slate-300' : 'bg-slate-100 '}
+                                            ${deskConfig.topMaterial === item.id ? 'bg-zinc-300' : 'bg-zinc-100 '}
                                             `}
 
                                         id={item.id}
@@ -64,12 +61,12 @@ const Configurator = () => {
                                             border-2
                                             space-x-2 
                                             w-full 
-                                            hover:bg-slate-300
+                                            hover:bg-zinc-300
                                             transition-all
                                             p-4 mt-4 
                                             rounded-full
                                             cursor-pointer
-                                            ${deskConfig.frameType === item.id ? 'bg-slate-300' : 'bg-slate-100 '}
+                                            ${deskConfig.frameType === item.id ? 'bg-zinc-300' : 'bg-zinc-100 '}
                                             `}
                                         id={item.id}
                                         onClick={() => {
@@ -103,12 +100,12 @@ const Configurator = () => {
                                         border-2
                                         space-x-2 
                                         w-full 
-                                        hover:bg-slate-300
+                                        hover:bg-zinc-300
                                         transition-all
                                         p-4 mt-4 
                                         rounded-full
                                         cursor-pointer
-                                        ${deskConfig.frameColor === item.id ? 'bg-slate-300' : 'bg-slate-100 '}
+                                        ${deskConfig.frameColor === item.id ? 'bg-zinc-300' : 'bg-zinc-100 '}
                                         `}
                                     id={item.id}
                                     onClick={() => deskConfig.setFrameColor(item.id)}>
@@ -131,12 +128,12 @@ const Configurator = () => {
                                 border-2
                                 space-x-2 
                                 w-full 
-                                hover:bg-slate-300
+                                hover:bg-zinc-300
                                 transition-all
                                 p-4 mt-4 
                                 rounded-full
                                 cursor-pointer
-                                ${deskConfig.electric ? 'bg-slate-300' : 'bg-slate-100 '}
+                                ${deskConfig.electric ? 'bg-zinc-300' : 'bg-zinc-100 '}
                                 `}
                                     onClick={() => deskConfig.setElectric(!deskConfig.electric)}>
 
@@ -156,11 +153,11 @@ const Configurator = () => {
                     </div> */}
 
                     <button className="w-full bg-slate-800 text-white font-bold py-2 rounded">加入购物车</button>
-                    <div className="h-20"></div>
+
                 </div>
             </div>
         </div>
     );
 };
 
-export default Configurator
+export default Configurator;

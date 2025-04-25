@@ -1,6 +1,7 @@
 
 import { Canvas } from '@react-three/fiber'
 import { useState } from 'react'
+import { Loader } from '@react-three/drei';
 import "./App.css"
 import Experience from './components/Experience'
 import Configurator from './components/Configurator'
@@ -18,12 +19,17 @@ export default function App() {
           {/* select-none防止鼠标拖拽离开canvas激活其它元素的行为 */}
           <Canvas style={{height: '100%', width: '100%'}} className="w-full h-full select-none" >
             <Experience />
+            
           </Canvas>
+          <Loader />
           <a className="relative bottom-10 right-10 font-semibold text-xl underline flex justify-center" href='https://yuminghuang.xyz/' target='__blank'>@Yuming Huang</a>
         </div>
         
         {/* 配置区域 */}
-        <Configurator />
+        <div className='md:w-2/5 md:h-full w-full h-2/3 bg-white p-4'>
+          <Configurator />
+        </div>
+        
 
         
         
