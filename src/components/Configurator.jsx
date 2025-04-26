@@ -135,7 +135,15 @@ const Configurator = () => {
                                 cursor-pointer
                                 ${deskConfig.electric ? 'bg-zinc-300' : 'bg-zinc-100 '}
                                 `}
-                                    onClick={() => deskConfig.setElectric(!deskConfig.electric)}>
+                                    onClick={() => {
+                                        // 切换电动升降状态
+                                        deskConfig.setElectric(!deskConfig.electric);
+
+                                        // 如果启用电动升降，移动相机到特定位置查看
+                                        if (!deskConfig.electric) {
+                                            deskConfig.moveCameraToElectricView();
+                                        } 
+                                    }}>
 
                                     <div className="font-semibold text-xl ">{deskConfig.electric ? "已配备" : "未配备"}</div>
                                 </div>
