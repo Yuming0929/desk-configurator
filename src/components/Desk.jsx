@@ -29,12 +29,13 @@ const Desk = (props) => {
     const { nodes, materials } = useGLTF('./models/desk.glb')
     const deskConfig = useConfigStore()
 
+    const woodTextureProps = useTextureWithSettings(textures[deskConfig.topMaterial])
 
 
     const computedLength = useMemo(() => deskConfig.length / deskConfig.defaultLength, [deskConfig.length])
 
     const computedWidth = useMemo(() => deskConfig.width / deskConfig.defaultWidth, [deskConfig.width])
-    const woodTextureProps = useTextureWithSettings(textures[deskConfig.topMaterial])
+    
 
     const computeRelativePosition = useMemo(() => (position) => {
         return new THREE.Vector3(

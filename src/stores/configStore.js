@@ -10,9 +10,9 @@ const useConfigStore = create(
     (set, get) => ({
       // 桌面配置
       defaultLength: DEFAULT_LENGTH,
-      defaultWidth: DEFAULT_LENGTH,
+      defaultWidth: DEFAULT_WIDTH,
       length: DEFAULT_LENGTH,
-      width: DEFAULT_LENGTH,
+      width: DEFAULT_WIDTH,
 
       // 材质的名字
       topMaterial: "oak",
