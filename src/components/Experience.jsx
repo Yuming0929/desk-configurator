@@ -37,7 +37,7 @@ const Experience = () => {
             <Stage environment={"apartment"} intensity={1}  
             shadows={false} 
             preset="portrait" 
-            adjustCamera={false}     // 禁用初始动画
+            adjustCamera={false}     
             >
                 {/* <mesh>
                     <boxGeometry args={[1, 1, 1]} />

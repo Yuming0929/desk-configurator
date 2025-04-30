@@ -1,15 +1,18 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import * as THREE from 'three';
+const DEFAULT_LENGTH = 120;
+const DEFAULT_WIDTH = 60;
+
 const useConfigStore = create(
   devtools(
 
     (set, get) => ({
       // 桌面配置
-      defaultLength: 120,
-      defaultWidth: 60,
-      length: 120,
-      width: 60,
+      defaultLength: DEFAULT_LENGTH,
+      defaultWidth: DEFAULT_LENGTH,
+      length: DEFAULT_LENGTH,
+      width: DEFAULT_LENGTH,
 
       // 材质的名字
       topMaterial: "oak",

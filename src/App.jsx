@@ -17,7 +17,7 @@ export default function App() {
         <div className='md:w-3/5 w-full h-1/3 md:h-full'>
         
           {/* select-none防止鼠标拖拽离开canvas激活其它元素的行为 */}
-          <Canvas style={{height: '100%', width: '100%'}} className="w-full h-full select-none" >
+          <Canvas  className="w-full h-full select-none" >
             <Experience />
             
           </Canvas>
