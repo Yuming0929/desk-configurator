@@ -52,7 +52,7 @@ const Desk = (props) => {
 
             {/* 桌面 */}
             <mesh geometry={nodes.Top.geometry} scale={[computedLength, 1, computedWidth]} position={nodes.Top.position}  >
-                <meshStandardMaterial {...woodTextureProps}/>
+                <meshStandardMaterial {...woodTextureProps} roughness={0.3}/>
 
             </mesh>
 

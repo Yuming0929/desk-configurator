@@ -38,6 +38,7 @@ const Experience = () => {
             shadows={false} 
             preset="portrait" 
             adjustCamera={false}     
+            control
             >
                 {/* <mesh>
                     <boxGeometry args={[1, 1, 1]} />
@@ -50,6 +51,7 @@ const Experience = () => {
                 //实现点击移动摄像机
                 ref={cameraControlsRef}
                 minDistance={7}
+                
                 >
             </CameraControls>
         </>

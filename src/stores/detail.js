@@ -64,6 +64,7 @@ export const frameColors = [
         id: '#a0a0a0',
         name: '灰色',
     },
+
 ]
 
 
