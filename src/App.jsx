@@ -8,7 +8,7 @@ import Configurator from './components/Configurator'
 
 export default function App() {
   return (  
-      <div className='fixed inset-0 h-full flex flex-col md:flex-row'>
+      <div className='fixed inset-0 flex flex-col md:flex-row'>
 
         {/* 模拟返回按钮*/}
         <button className=' fixed top-4 left-4 bg-white p-3 px-4 rounded-full z-10'> ←  </button>
@@ -22,11 +22,11 @@ export default function App() {
             
           </Canvas>
           <Loader />
-          <a className="relative bottom-10 right-10 font-semibold text-xl underline flex justify-center" href='https://yuminghuang.xyz/' target='__blank'>@Yuming Huang</a>
+          <a className="relative bottom-10 right-10 font-semibold text-xl underline flex justify-center" href='https://yuminghuang.com/' target='__blank'>@Yuming Huang</a>
         </div>
         
         {/* 配置区域 */}
-        <div className='md:w-2/5 md:h-full w-full h-2/3 bg-white p-4'>
+        <div className='w-full md:w-2/5 h-2/3 md:h-full bg-white p-4'>
           <Configurator />
         </div>
         

@@ -55,7 +55,7 @@ const useConfigStore = create(
           // 使用CameraControls的setLookAt方法
           // 参数: (eye.x, eye.y, eye.z, target.x, target.y, target.z, enableTransition)
           cameraControls.setLookAt(
-            5, 1.5, 2.5,  // 相机位置 
+            4.5, 1.5, 2.5,  // 相机位置 
             0, 0, 0,    // 目标位置
             true,         // 启用过渡动画
             0.5           // 过渡时间（秒）

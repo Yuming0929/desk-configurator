@@ -8,18 +8,17 @@ const Configurator = () => {
 
     return (
 
-        <div className="flex flex-col h-full overflow-y-auto select-none">
+        <div className="flex flex-col h-full overflow-y-auto space-y-4 select-none">
             {/* 滚动容器 - 设置固定高度并启用滚动 */}
             {/* 内容区域 */}
-            <div className="space-y-4  rounded p-4">
-
+            
                 <h2 className="font-semibold text-xl pl-2">面板选择</h2>
                 <hr />
                 <div className="flex flex-col">
                     {
                         Object.values(textures).map((item) => {
                             return (
-                                <div key={item.id}
+                                <button key={item.id}
                                     className={`
                                             flex
                                             items-center
@@ -29,7 +28,7 @@ const Configurator = () => {
                                             hover:bg-zinc-300
                                             transition-all
                                             p-2 mt-4 
-                                            rounded-full
+                                            rounded-3xl
                                             cursor-pointer
                                             ${deskConfig.topMaterial === item.id ? 'bg-zinc-300' : 'bg-white '}
                                             `}
@@ -38,7 +37,7 @@ const Configurator = () => {
                                     onClick={() => deskConfig.setTopMaterial(item.id)}>
                                     <img src={item.texture.map} className="w-14 h-14 rounded-full" />
                                     <div className="font-semibold text-xl ">{item.name}</div>
-                                </div>
+                                </button>
                             )
 
                         })
@@ -47,11 +46,11 @@ const Configurator = () => {
 
                 <h2 className="font-semibold text-xl pl-2">桌腿选择</h2>
                 <hr />
-                <div className="flex flex-row ">
+                <div className="flex flex-row gap-2">
                     {
                         frameTypes.map((item) => {
                             return (
-                                <div key={item.id}
+                                <button key={item.id}
                                     className={`
                                             flex
                                             items-center
@@ -61,7 +60,7 @@ const Configurator = () => {
                                             hover:bg-zinc-300
                                             transition-all
                                             p-4 mt-4 
-                                            rounded-full
+                                            rounded-3xl
                                             cursor-pointer
                                             ${deskConfig.frameType === item.id ? 'bg-zinc-300' : 'bg-white '}
                                             `}
@@ -77,7 +76,7 @@ const Configurator = () => {
 
 
                                     <div className="font-semibold text-xl ">{item.name}</div>
-                                </div>
+                                </button>
                             )
                         })
 
@@ -90,7 +89,7 @@ const Configurator = () => {
                 {
                     frameColors.map((item) => {
                         return (
-                            <div key={item.id}
+                            <button key={item.id}
                                 className={`
                                         flex
                                         items-center
@@ -100,7 +99,7 @@ const Configurator = () => {
                                         hover:bg-zinc-300
                                         transition-all
                                         p-4 mt-4 
-                                        rounded-full
+                                        rounded-3xl
                                         cursor-pointer
                                         ${deskConfig.frameColor === item.id ? 'bg-zinc-300' : 'bg-white'}
                                         `}
@@ -108,7 +107,7 @@ const Configurator = () => {
                                 onClick={() => deskConfig.setFrameColor(item.id)}>
                                 <div className="w-14 h-14 rounded-full border-[1px] " style={{ backgroundColor: item.id }} />
                                 <div className="font-semibold text-xl ">{item.name}</div>
-                            </div>
+                            </button>
                         )
                     })
                 }
@@ -118,7 +117,7 @@ const Configurator = () => {
                         <hr />
 
                         <div className="flex flex-row ">
-                            <div
+                            <button
                                 className={`
                                 flex
                                 items-center
@@ -128,7 +127,7 @@ const Configurator = () => {
                                 hover:bg-zinc-300
                                 transition-all
                                 p-4 mt-4 
-                                rounded-full
+                                rounded-3xl
                                 cursor-pointer
                                 ${deskConfig.electric ? 'bg-zinc-300' : 'bg-white '}
                                 `}
@@ -145,7 +144,7 @@ const Configurator = () => {
                                     <div className={`absolute h-4 w-4 rounded-full bg-white shadow-md transition-transform duration-300 ${deskConfig.electric ? 'translate-x-6' : 'translate-x-0'}`}></div>
                                 </div>
                                 <div className="font-semibold text-xl ">{deskConfig.electric ? "已配备" : "未配备"}</div>
-                            </div>
+                            </button>
                         </div>
                     </>}
                 <h2 className="font-semibold text-xl pl-2">桌面尺寸选择</h2>
@@ -161,7 +160,7 @@ const Configurator = () => {
 
                 <button className="w-full bg-slate-800 text-white font-bold py-2 rounded">加入购物车</button>
 
-            </div>
+            
 
         </div>
     );

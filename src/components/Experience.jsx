@@ -13,17 +13,15 @@ const Experience = () => {
     useEffect(() => {
         if (cameraControlsRef.current) {
             deskConfig.setCameraControls(cameraControlsRef.current);
-            
+            if (cameraControlsRef.current) {
+                cameraControlsRef.current.setLookAt(
+                    5, 4, 5,      // 远离物体的相机位置
+                    0, 0.5, 0,    // 目标位置（桌子中心）
+                    true         // 不使用动画，直接设置
+                );
+            }
              // 设置初始相机位置 - 较远的位置
-             setTimeout(() => {
-                if (cameraControlsRef.current) {
-                    cameraControlsRef.current.setLookAt(
-                        8, 5, 8,      // 远离物体的相机位置
-                        0, 0.5, 0,    // 目标位置（桌子中心）
-                        true         // 不使用动画，直接设置
-                    );
-                }
-            }, 100);
+
         }
         return () => {
             deskConfig.setCameraControls(null);
@@ -34,11 +32,12 @@ const Experience = () => {
         <>
             <color attach="background" args={['#e5e5e5']} />
             {/* <ambientLight intensity={1} /> */}
-            <Stage environment={"apartment"} intensity={1}  
+            <Stage 
+            environment={"apartment"} 
+            intensity={1}  
             shadows={false} 
-            preset="portrait" 
             adjustCamera={false}     
-            control
+            
             >
                 {/* <mesh>
                     <boxGeometry args={[1, 1, 1]} />
@@ -50,8 +49,8 @@ const Experience = () => {
             <CameraControls
                 //实现点击移动摄像机
                 ref={cameraControlsRef}
-                minDistance={7}
-                
+                minDistance={4}
+                maxDistance={7}
                 >
             </CameraControls>
         </>
